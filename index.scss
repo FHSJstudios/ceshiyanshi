@@ -1,0 +1,269 @@
+:root {
+  font-size: 10px;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: "Poppins", sans-serif;
+}
+
+@mixin flexCenter($direction: row, $justify: center, $align: center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+#login {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  @include flexCenter(column, flex-start, center);
+  overflow: hidden;
+
+  > .bgc {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url(./public/images/BG1.png) no-repeat center center/cover;
+    z-index: -999;
+  }
+
+  > header {
+    margin-top: 7rem;
+    width: 100%;
+    height: 12rem;
+    // background: red;
+    @include flexCenter(column, center, center);
+
+    > h1 {
+      font-size: 4.2rem;
+      color: #fff;
+    }
+
+    > p {
+      margin-top: 1rem;
+      font-size: 1.6rem;
+      color: #fff;
+    }
+  }
+
+  > main {
+    width: 100%;
+    height: 100%;
+    // background-color: burlywood;
+    @include flexCenter(column, center, flex-end);
+
+    > form {
+      @include flexCenter(column, flex-start, center);
+      margin-right: 15rem;
+      width: 50rem;
+      aspect-ratio: 1/1;
+      background: url(./public/images/input-boder.png) no-repeat center
+        center/cover;
+
+      > nav {
+        @include flexCenter(wrap);
+        gap: 8rem;
+        padding: 2.5rem 4.6rem 1.6rem;
+        border-bottom: 1px solid #13ace5;
+        font-size: 1.6rem;
+        color: #fff;
+
+        > .account-login {
+          transition: all 0.3s;
+          &:hover {
+            font-size: 2rem;
+          }
+        }
+        > .SMS-login {
+          transition: all 0.3s;
+          &:hover {
+            font-size: 2rem;
+          }
+        }
+        > .swipe-to-login {
+          transition: all 0.3s;
+          &:hover {
+            font-size: 2rem;
+          }
+        }
+      }
+
+      > main {
+        position: relative;
+        @include flexCenter(wrap, center, center);
+        width: 50rem;
+        height: 40rem;
+        padding: 5rem;
+
+        > .account-login {
+          position: absolute;
+          // width: 100%;
+          // height: 100%;
+          @include flexCenter(column, flex-start, center);
+          // background: red;
+          // border:1px solid #13ace5;
+          z-index: 1;
+          opacity: 1;
+          > input {
+            width: 100%;
+            height: 6rem;
+            margin-top: 4rem;
+            padding: 0 1rem;
+            font-size: 1.6rem;
+            border: none;
+            border-bottom: 1px solid #13ace5;
+            outline: none;
+            border-radius: 1rem;
+
+            &:nth-child(1) {
+              margin-top: 0;
+            }
+          }
+
+          > .memorize-passwords {
+            margin-top: 2rem;
+            font-size: 1.6rem;
+            color: #fff;
+            margin-left: 30rem;
+
+            > .btn {
+              display: inline-block;
+              width: 1.5rem;
+              aspect-ratio: 1/1;
+              border-radius: 50%;
+              background: #fff;
+            }
+          }
+
+          > .btn-login {
+            width: 100%;
+            height: 6rem;
+            background-color: #13ace5;
+            margin-top: 3rem;
+            font-size: 1.6rem;
+            color: #fff;
+            @include flexCenter(column, center, center);
+            border-radius: 1rem;
+          }
+        }
+
+        > .SMS-login {
+          position: absolute;
+          // background-color: red;
+          width: calc(100% - 11rem);
+          height: calc(100% - 11rem);
+          @include flexCenter(column, flex-start, center);
+          // background: red;
+          // border:1px solid #13ace5;
+          z-index: 1;
+          opacity: 0;
+
+          > input {
+            width: 100%;
+            height: 6rem;
+            padding: 0 1rem;
+            font-size: 1.6rem;
+            border: none;
+            border-bottom: 1px solid #13ace5;
+            outline: none;
+            border-radius: 1rem;
+          }
+
+          > .text {
+            width: 100%;
+            margin-top: 4rem;
+            height: 6rem;
+            font-size: 1.6rem;
+            // background-color: red;
+            @include flexCenter(row, center, center);
+
+            > input {
+              width: 100%;
+              height: 6rem;
+              // margin-right: 1rem;
+              padding: 0 1rem;
+              font-size: 1.6rem;
+              border: none;
+              border-bottom: 1px solid #13ace5;
+              outline: none;
+              border-radius: 1rem;
+            }
+
+            > span {
+              @include flexCenter(row, center, center);
+              margin-left: 2rem;
+              min-width: 6em;
+              height: 100%;
+              background-color: #13ace5;
+              font-size: 1.6rem;
+              color: #fff;
+              padding: 1rem 2rem;
+              line-height: 2rem;
+              border-radius: 1rem;
+              white-space: nowrap;
+            }
+          }
+
+          > .btn-login {
+            width: 100%;
+            height: 6rem;
+            background-color: #13ace5;
+            margin-top: 7rem;
+            font-size: 1.6rem;
+            color: #fff;
+            @include flexCenter(column, center, center);
+            border-radius: 1rem;
+          }
+        }
+
+        > .swipe-to-login {
+          // width: 100%;
+          height: 110%;
+          aspect-ratio: 5/6;
+          background: url(./public/images/erweima.jpeg) no-repeat top
+            center/cover;
+          // border:1px solid #13ace5;
+          z-index: 1;
+          opacity: 0;
+        }
+      }
+    }
+  }
+
+  > footer {
+    position: relative;
+    width: 100%;
+    height: 10rem;
+    min-height: 10rem;
+    // background: green;
+    @include flexCenter(column, center, center);
+    border-top: 1px solid #13ace5;
+    font-size: 1.6rem;
+    gap: 1rem;
+    color: #fff;
+  }
+}
